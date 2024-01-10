@@ -1,6 +1,7 @@
 import json
 import os
 from datetime import datetime as dt, timedelta as td
+import helpmodule as hmd
 #path='/storage/emulated/0/documents/станы/'
 path=''
 filename='DB.txt'
@@ -11,8 +12,8 @@ Vchera = dt.now().date() - td(days=1)
 if os.stat(path+filename).st_size!=0:
     with open(path+filename) as file:
         J = json.load(file)
-
-print('Сейчас {0}'.format(dt.now()))
+hmd.seichas()
+hmd.printhelp()
 print('Показываю отчёт за вчерашний день {0} и сегодняшний день [{1}]'.format(Vchera,Segodnya))
 i=0
 for d in J:
@@ -26,7 +27,7 @@ for d in J:
         elif (d['urs'] == 4): slojnost =    '   СЛОЖНО'
         elif (d['urs'] == 5): slojnost =    'ОЧ СЛОЖНО'
         else: slojnost = 'ERROR'
-        S = str(i) + '\t' + dayOrNight +': '+ d['date'] + ', ' + str(d['vrnh']).rjust(2,'0') + ':' + str(d['vrnm']).ljust(2,'0') + '-' + str(d['vrkh']).rjust(2,'0') + ':' + str(d['vrkm']).ljust(2,'0') + '\n\t\t' + str(d['nst'])+ '\t' +d['podr'] + '.  ' + slojnost + ', ' + d['user'] + '.'
+        S = str(i) + '\t' + dayOrNight +': '+ d['date'] + ', ' + str(d['vrnh']).rjust(2,'0') + ':' + str(d['vrnm']).ljust(2,'0') + '-' + str(d['vrkh']).rjust(2,'0') + ':' + str(d['vrkm']).ljust(2,'0') + '\n\t\t' + str(hmd.getname(d['nst']))+ '\t' +d['podr'] + '.  ' + slojnost + ', ' + d['user'] + '.'
         print(S)
 
 

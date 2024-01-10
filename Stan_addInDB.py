@@ -1,24 +1,23 @@
 import json
 import datetime as dt
 import os
+import helpmodule as hmd
 #path='/storage/emulated/0/documents/станы/'
 path=''
 filename='DB.txt'
 user='RomixERR'
 confirm=''
-date=str(dt.date.today())
-time=str(dt.datetime.now().time())
-print('дата: {0}, время: {1}'.format(date,time))
+
+hmd.seichas()
 
 if os.stat(path+filename).st_size!=0:
     with open(path+filename) as file:
         data = json.load(file)
 
 while(confirm.upper() != 'Д'):
-	print('='*20)
-	print('подсказка: плющило - 46, 1,5-марио, ...')
-	print('='*20)
+	hmd.printhelp()
 	nst=int(input('номер стана '))
+	print('>',hmd.getname(nst))
 	vrnh=int(input('   вызов в (указать час) '))
 	vrnm=int(input('   вызов в (указать мин) '))
 	vrkh=int(input('закончил в (указать час) '))
@@ -36,7 +35,8 @@ while(confirm.upper() != 'Д'):
 	elif urs<1 or urs>5:
 		print('ОШИБКА УРОВНЯ СЛОЖНОСТИ')
 		confirm=''
-
+date=hmd.date
+time=hmd.time
 d={'nst':nst,'vrnh':vrnh,'vrnm':vrnm,'vrkh':vrkh,'vrkm':vrkm,'urs':urs,'podr':podr,'date':date,'time':time,'user':user}
 
 data.append(d)
