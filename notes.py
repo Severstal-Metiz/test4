@@ -31,7 +31,7 @@ def printNotes():
         dt = dt.date()
         s = s + '\n' + 'N' + str(i)+ '\t\t'+ str(dt) +' ' + str(h).rjust(2,'0') + ':' + str(m).rjust(2,'0') + '\t' + d['text']
     print(s)
-    print('----------')
+    print('====================')
 
 def saveNote(text):
     d={}
@@ -39,7 +39,14 @@ def saveNote(text):
     d['text']=text
     data.append(d)
     SaveDB(data,filenameNoteDB,path)
-#clearNotes()
-#print(DelOrNot('2024-01-10 00:40:24.485892'))
-#saveNote('Дурачо ккк к кк  к')
-printNotes()
+
+def createNote(text):
+    confirm = input('НОВАЯ ЗАМЕТКА ВВЕДЕНА, сохранить? д/н? ')
+    if confirm.upper() == 'Д':
+        saveNote(text)
+    else: print('ОТМЕНА')
+
+
+if __name__=='__main__':
+    printNotes()
+    print('Это дополнительный модуль, он ничего не делает')

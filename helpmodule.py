@@ -37,8 +37,6 @@ def getname(k):
 		return stand[k]
 	else: return str(k)
 
-print('Сделай так и больше нинаааааадааа. сделать оттельно блоки фиба доп ввод или станов на мокром. + редактор записей')
-
 def LoadDB(filename, path=''):
 	data=[]
 	if os.stat(path + filename).st_size != 0:

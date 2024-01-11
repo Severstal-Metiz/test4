@@ -1,6 +1,8 @@
 from helpmodule import *
+import notes
 
 data = LoadDB(filenameMainDB, path)
+notes.printNotes()
 seichas()
 printhelp()
 print('Показываю отчёт за вчерашний день {0} и сегодняшний день [{1}]'.format(Vchera,Segodnya))
