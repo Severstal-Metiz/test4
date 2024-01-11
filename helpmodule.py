@@ -1,9 +1,19 @@
 import datetime as dt
+import json
+import os
+
+#path='/storage/emulated/0/documents/станы/'
+path=''
+filenameMainDB= 'DB.txt'
+filenameNoteDB= 'Note.txt'
+user='RomixERR'
 
 stand={46:'плющ',901:'травилка',902:'нейтрализация',501:'FIB-1',502:'FIB-2',503:'FIB-3',1000:'Мокрое сволочение'}
 
 date=str(dt.date.today())
 time=str(dt.datetime.now().time())
+Segodnya = dt.datetime.now().date()
+Vchera = dt.datetime.now().date() - dt.timedelta(days=1)
 
 def seichas():
 	wdn=['пн','вт','ср','чт','пт','сб','вс']
@@ -29,7 +39,18 @@ def getname(k):
 
 print('Сделай так и больше нинаааааадааа. сделать оттельно блоки фиба доп ввод или станов на мокром. + редактор записей')
 
+def LoadDB(filename, path=''):
+	if os.stat(path + filename).st_size != 0:
+		with open(path + filename) as file:
+			data = json.load(file)
+	return data
+
+def SaveDB(data, filename, path=''):
+	with open(path + filename, 'w') as file:
+		json.dump(data, file)
+
 if __name__=='__main__':
 	seichas()
 	printhelp()
 	print('Это дополнительный модуль, он ничего не делает')
+
