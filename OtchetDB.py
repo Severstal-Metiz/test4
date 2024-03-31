@@ -18,8 +18,9 @@ for d in data:
         elif (d['urs'] == 4): slojnost =    '   СЛОЖНО'
         elif (d['urs'] == 5): slojnost =    'ОЧ СЛОЖНО'
         else: slojnost = 'ERROR'
+        slojnost = '' # убрал из отчета
         if not 'nbl' in d: d['nbl']='' #для старых записей без nbl
-        S = str(i) + '\t' + dayOrNight +': '+ d['date'] + ', ' + str(d['vrnh']).rjust(2,'0') + ':' + str(d['vrnm']).ljust(2,'0') + '-' + str(d['vrkh']).rjust(2,'0') + ':' + str(d['vrkm']).ljust(2,'0') + '\n\t\t' + str(getname(d['nst'])) +'\t'+ d['nbl'] +'\t' +d['podr'] + '.  ' + slojnost + ', ' + d['user'] + '.'
+        S = str(i) + '\t' + dayOrNight +': '+ d['date'] + ', ' + str(d['vrnh']).rjust(2,'0') + ':' + str(d['vrnm']).rjust(2,'0') + '-' + str(d['vrkh']).rjust(2,'0') + ':' + str(d['vrkm']).rjust(2,'0') + '\n\t\t' + str(getname(d['nst'])) +'\t'+ d['nbl'] +'\t' +d['podr'] + '.  ' + slojnost + ', ' + d['user'] + '.'
         print(S)
 
 

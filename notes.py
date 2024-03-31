@@ -2,7 +2,7 @@ import datetime
 from helpmodule import *
 
 data = LoadDB(filenameNoteDB, path)
-deltaTreshold = 5
+deltaTreshold = 11
 
 def hoursAndMinutes(string):
     dt = datetime.datetime.fromisoformat(string)
