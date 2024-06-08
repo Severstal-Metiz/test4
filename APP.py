@@ -7,4 +7,7 @@ if a==1:
 elif a==2:
 	import OtchetDB
 else:
-	print('Не коректный ввод!')	
+	print('Не коректный ввод!')
+	
+		
+				
